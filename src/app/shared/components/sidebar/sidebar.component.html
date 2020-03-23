@@ -1,0 +1,47 @@
+<mat-nav-list>
+
+    <mat-card class="my-5 mx-3">
+      <div  class="text-center">
+       <img mat-card-avatar src="../../../../assets/avatar.png" class="mr-3 mb-5">
+      </div>
+      <mat-card-content>
+        <ul class="list-unstyled" >
+<li class="py-1"><span>Welcome ...</span></li>
+<li class="py-1"><span>Email: info@fahmawy.com</span></li>
+<li class="py-1"><span>Mobile number: 0101010101</span></li>
+        </ul>
+
+</mat-card-content>
+    </mat-card>
+
+  <mat-divider></mat-divider>
+
+  <a mat-list-item routerLinkActive="sidebar-item-active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/superDashBoard']">Dashboard</a>
+<mat-divider></mat-divider>
+
+<a mat-list-item routerLinkActive="sidebar-item-active" [routerLink]="['/superDashBoard/home']">Home</a>
+<mat-divider></mat-divider>
+
+<a mat-list-item routerLinkActive="sidebar-item-active" [routerLink]="['/superDashBoard/customers']">Customers</a>
+<mat-divider></mat-divider>
+
+<a  mat-list-item routerLinkActive="sidebar-item-active" [routerLink]="['/superDashBoard/services']">Services</a>
+<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+  <!-- This is the tree node template for leaf nodes -->
+  <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+    <!-- use a disabled button to provide padding for tree leaf -->
+    <button mat-icon-button disabled></button>
+    {{node.name}}
+  </mat-tree-node>
+  <!-- This is the tree node template for expandable nodes -->
+  <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+    <button mat-icon-button matTreeNodeToggle
+            [attr.aria-label]="'toggle ' + node.name">
+      <mat-icon class="mat-icon-rtl-mirror">
+        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+      </mat-icon>
+    </button>
+    {{node.name}}
+  </mat-tree-node>
+</mat-tree>
+</mat-nav-list>
