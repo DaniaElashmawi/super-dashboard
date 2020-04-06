@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { CustomersComponent } from './customers/customers.component';
 import { ServicesComponent } from './services/services.component';
 import { SuperDashLayoutComponent } from './layouts/super-dash-layout/super-dash-layout.component';
+import { StatisticsComponent } from './statistics/statistics.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,9 @@ const routes: Routes = [
           } ,
           {
             path: 'services' , component: ServicesComponent
+          } ,
+          {
+            path: 'statistics' , component: StatisticsComponent
           }
         ]
       }

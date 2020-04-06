@@ -8,7 +8,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import {TreeViewModule} from './modules/tree-view/tree-view.module';
+
+
+/** HighChart **/
+import { HighchartsChartComponent } from 'highcharts-angular';
+
 
 /** Components **/
 import { AppComponent } from './app.component';
@@ -20,6 +24,7 @@ import { SuperDashLayoutComponent } from './layouts/super-dash-layout/super-dash
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
+import { StatisticsComponent } from './statistics/statistics.component';
 
 
 @NgModule({
@@ -33,6 +38,8 @@ import { SidebarComponent } from './shared/components/sidebar/sidebar.component'
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
+    StatisticsComponent,
+    HighchartsChartComponent
   ],
   imports: [
     BrowserModule,
@@ -41,8 +48,7 @@ import { SidebarComponent } from './shared/components/sidebar/sidebar.component'
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    FlexLayoutModule,
-    TreeViewModule
+    FlexLayoutModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA],
   providers: [],

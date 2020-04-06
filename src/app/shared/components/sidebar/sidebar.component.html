@@ -1,47 +1,97 @@
-<mat-nav-list>
+<mat-nav-list >
 
-    <mat-card class="my-5 mx-3">
+    <div class="my-5 mx-3 user-profile">
       <div  class="text-center">
-       <img mat-card-avatar src="../../../../assets/avatar.png" class="mr-3 mb-5">
+       <img src="../../../../assets/avatar.png" class="mr-3 mb-5 w-75 rounded-circle">
       </div>
-      <mat-card-content>
+      <div class="user-profile-info text-center">
         <ul class="list-unstyled" >
-<li class="py-1"><span>Welcome ...</span></li>
+<li class="py-1"><span>Welcome .... </span></li>
 <li class="py-1"><span>Email: info@fahmawy.com</span></li>
 <li class="py-1"><span>Mobile number: 0101010101</span></li>
         </ul>
 
-</mat-card-content>
-    </mat-card>
+</div>
+</div>
 
   <mat-divider></mat-divider>
-
-  <a mat-list-item routerLinkActive="sidebar-item-active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/superDashBoard']">Dashboard</a>
+  <a mat-list-item routerLinkActive="sidebar-item-active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/superDashBoard']">
+    <mat-icon class="mr-1">dashboard</mat-icon>
+    Dashboard</a>
 <mat-divider></mat-divider>
 
-<a mat-list-item routerLinkActive="sidebar-item-active" [routerLink]="['/superDashBoard/home']">Home</a>
+<a mat-list-item routerLinkActive="sidebar-item-active" [routerLink]="['/superDashBoard/home']">
+  <mat-icon class="mr-1">home</mat-icon>
+  Home</a>
 <mat-divider></mat-divider>
 
-<a mat-list-item routerLinkActive="sidebar-item-active" [routerLink]="['/superDashBoard/customers']">Customers</a>
+<a mat-list-item routerLinkActive="sidebar-item-active" [routerLink]="['/superDashBoard/statistics']">
+  <mat-icon class="mr-1">insert_chart_outlined</mat-icon>
+  statistics</a>
 <mat-divider></mat-divider>
 
-<a  mat-list-item routerLinkActive="sidebar-item-active" [routerLink]="['/superDashBoard/services']">Services</a>
-<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
-  <!-- This is the tree node template for leaf nodes -->
-  <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
-    <!-- use a disabled button to provide padding for tree leaf -->
-    <button mat-icon-button disabled></button>
-    {{node.name}}
-  </mat-tree-node>
-  <!-- This is the tree node template for expandable nodes -->
-  <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
-    <button mat-icon-button matTreeNodeToggle
-            [attr.aria-label]="'toggle ' + node.name">
-      <mat-icon class="mat-icon-rtl-mirror">
-        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-      </mat-icon>
-    </button>
-    {{node.name}}
-  </mat-tree-node>
-</mat-tree>
+<a mat-list-item routerLinkActive="sidebar-item-active" [routerLink]="['/superDashBoard/customers']">
+  <mat-icon class="mr-1">folder_shared</mat-icon>
+  Customers</a>
+<mat-divider></mat-divider>
+
+
+<ul class="list-unstyled px-0">
+
+<li class="nav-item">
+
+  <a class="nav-link collapsed p-0 " href="#servicesubmenu"
+  data-toggle="collapse" data-target="#servicesubmenu">
+
+  <a mat-list-item routerLinkActive="sidebar-item-active"
+[routerLink]="['/superDashBoard/services']"
+ class="d-none d-sm-inline " (click)="toggleArrow()">
+
+ <mat-icon mat-list-icon [ngClass]="serviceOpen ? 'd-none' : ''">arrow_right</mat-icon>
+ <mat-icon mat-list-icon [ngClass]="serviceOpen ? '' : 'd-none'">arrow_drop_down</mat-icon>Services</a>
+
+</a>
+
+  <div class="collapse" id="servicesubmenu" aria-expanded="false">
+      <ul class="flex-column pl-2 nav">
+          <li class="nav-item">
+            <a class="nav-link py-0" href="#"><span>services 1</span></a>
+          </li>
+          <li class="nav-item submenu">
+              <a class="nav-link collapsed py-1" href="#servicesubmenusub"
+               data-toggle="collapse" data-target="#servicesubmenusub" >
+               service 2</a>
+              <div class="collapse" id="servicesubmenusub" aria-expanded="false">
+                  <ul class="flex-column nav pl-4">
+                      <li class="nav-item">
+                          <a class="nav-link p-1" href="#">
+                              </a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link p-1" href="#">
+                               submenu item 1 </a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link p-1" href="#">
+                            submenu item 2 </a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link p-1" href="#">
+                            submenu item 3 </a>
+                      </li>
+                  </ul>
+              </div>
+          </li>
+      </ul>
+  </div>
+
+
+</li>
+
+</ul>
+<mat-divider></mat-divider>
+
+
+
+
 </mat-nav-list>
