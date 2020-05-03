@@ -2,29 +2,35 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 
-/**  Modules **/
+// Modules
 import { MaterialModule } from './modules/material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import { HttpClientModule } from '@angular/common/http';
 
 
-/** HighChart **/
+// HighChart
 import { HighchartsChartComponent } from 'highcharts-angular';
 
 
-/** Components **/
+// Components
 import { AppComponent } from './app.component';
-import { SuperDashboardComponent } from './super-dashboard/super-dashboard.component';
-import { HomeComponent } from './home/home.component';
-import { CustomersComponent } from './customers/customers.component';
-import { ServicesComponent } from './services/services.component';
+import { SuperDashboardComponent } from './_components/super-dashboard/super-dashboard.component';
+import { HomeComponent } from './_components/home/home.component';
+import { CustomersComponent } from './_components/customers/customers.component';
+import { ServicesComponent } from './_components/services/services.component';
 import { SuperDashLayoutComponent } from './layouts/super-dash-layout/super-dash-layout.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
-import { StatisticsComponent } from './statistics/statistics.component';
+import { StatisticsComponent } from './_components/statistics/statistics.component';
+import { LoginComponent } from './_components/login/login.component';
+
+
+// services
+// import { AuthService} from './_services/auth.service';
 
 
 @NgModule({
@@ -39,7 +45,8 @@ import { StatisticsComponent } from './statistics/statistics.component';
     FooterComponent,
     SidebarComponent,
     StatisticsComponent,
-    HighchartsChartComponent
+    HighchartsChartComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +55,8 @@ import { StatisticsComponent } from './statistics/statistics.component';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    HttpClientModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA],
   providers: [],

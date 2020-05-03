@@ -6,7 +6,7 @@
 <button  mat-raised-button [matMenuTriggerFor]="userMenu" ><mat-icon>person_outline</mat-icon></button>
 <mat-menu #userMenu="matMenu" >
 
-<button mat-menu-item ><mat-icon >exit_to_app</mat-icon>Sing Out</button>
+<button mat-menu-item (click)="onLogOut()"  [routerLink]="['/login']" ><mat-icon >exit_to_app</mat-icon>Sing Out</button>
 <button mat-menu-item ><mat-icon >notification_important</mat-icon>Notifications</button>
 
 </mat-menu>

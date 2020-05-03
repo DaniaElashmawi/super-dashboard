@@ -1,20 +1,28 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { SuperDashboardComponent } from './super-dashboard/super-dashboard.component';
-import { HomeComponent } from './home/home.component';
-import { CustomersComponent } from './customers/customers.component';
-import { ServicesComponent } from './services/services.component';
-import { SuperDashLayoutComponent } from './layouts/super-dash-layout/super-dash-layout.component';
-import { StatisticsComponent } from './statistics/statistics.component';
 
+import { Routes, RouterModule } from '@angular/router';
+
+import { SuperDashboardComponent } from './_components/super-dashboard/super-dashboard.component';
+import { HomeComponent } from './_components/home/home.component';
+import { LoginComponent } from './_components/login/login.component';
+import { CustomersComponent } from './_components/customers/customers.component';
+import { ServicesComponent } from './_components/services/services.component';
+import { SuperDashLayoutComponent } from './layouts/super-dash-layout/super-dash-layout.component';
+import { StatisticsComponent } from './_components/statistics/statistics.component';
+
+import { AuthenticationGuard } from './_guard/authentication.guard';
 
 const routes: Routes = [
   {
-    path: '' ,
-    component: SuperDashLayoutComponent ,
+    path: 'login' ,
+    component: LoginComponent
+  },
+  {
+    path: 'superDashBoard' ,
+    component: SuperDashLayoutComponent , canActivate : [AuthenticationGuard] ,
     children: [
       {
-        path: 'superDashBoard' ,
+        path: '' ,
         component: SuperDashboardComponent ,
         children: [
           {
@@ -32,7 +40,10 @@ const routes: Routes = [
         ]
       }
     ]
-  } ] ;
+  },
+  { path: '**' , component: LoginComponent }
+
+] ;
 
 
 @NgModule({
